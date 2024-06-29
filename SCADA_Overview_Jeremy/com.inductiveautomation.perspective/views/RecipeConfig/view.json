@@ -1,0 +1,378 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 900
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "142px"
+                },
+                "props": {
+                  "text": "Machine Name:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Dropdown"
+                },
+                "position": {
+                  "basis": "433.6px"
+                },
+                "propConfig": {
+                  "props.options": {
+                    "binding": {
+                      "config": {
+                        "expression": ""
+                      },
+                      "transforms": [
+                        {
+                          "code": "\t\n\t\n\t        # Initialize the systemName variable\n\t        systemName \u003d \u0027SimulationV3\u0027\n\t        \n\t        # Retrieve machine names using QueryTagHistory.findChildMachines\n\t        machineNamesList \u003dCM_Test.Demo.findChildMachines(systemName)\n\t        \n\t        # Create an empty list to store the formatted machine names\n\t        formattedList \u003d []\n\t        \n\t        # Iterate through the machine names and format them as dictionaries\n\t        for machineName in machineNamesList:\n\t            formattedMachine \u003d {\n\t                \"value\": machineName,\n\t                \"label\": machineName\n\t            }\n\t            formattedList.append(formattedMachine)\n\t        \n\t        # Return the formatted list directly\n\t        \n\t        return formattedList\n\t",
+                          "type": "script"
+                        }
+                      ],
+                      "type": "expr"
+                    }
+                  }
+                },
+                "props": {
+                  "value": "Machine 3"
+                },
+                "type": "ia.input.dropdown"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "47px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "148px"
+                },
+                "props": {
+                  "text": "Recipe Name:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TextField"
+                },
+                "position": {
+                  "basis": "427.6px"
+                },
+                "props": {
+                  "text": "ET33RH"
+                },
+                "type": "ia.input.text-field"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "36px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "132px"
+                },
+                "props": {
+                  "text": "Cycle Target:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TextField_0"
+                },
+                "position": {
+                  "basis": "443px"
+                },
+                "props": {
+                  "text": "3.05"
+                },
+                "type": "ia.input.text-field"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_2"
+            },
+            "position": {
+              "basis": "44px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "142px"
+                },
+                "props": {
+                  "text": "Setup Time:"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "TextField_0"
+                },
+                "position": {
+                  "basis": "443px"
+                },
+                "props": {
+                  "text": "30.05"
+                },
+                "type": "ia.input.text-field"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_4"
+            },
+            "position": {
+              "basis": "47px"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\t# Grab the area number and machine name from the components we added to the window.\n\t\t\t\tMachinename \u003d self.parent.getSibling(\u0027FlexContainer_0\u0027).getChild(\u0027Dropdown\u0027).props.value\n\t\t\t\t#self.getSibling(\u0027FlexContainer_0\u0027).getChild(\u0027Dropdown\u0027).props.value \n\t\t\t\tRecipeName \u003d  self.parent.getSibling(\u0027FlexContainer_1\u0027).getChild(\u0027TextField\u0027).props.text \n\t\t\t\tCycleTarget \u003d self.parent.getSibling(\u0027FlexContainer_2\u0027).getChild(\u0027TextField_0\u0027).props.text\n\t\t\t\tSetupTime  \u003d  self.parent.getSibling(\u0027FlexContainer_4\u0027).getChild(\u0027TextField_0\u0027).props.text  \n\t\t\t\t\n\t\t\t\t# A call to our Named Query, inserting the two parameters using dictionary syntax.\n\t\t\t\tsystem.db.runNamedQuery(\"INSERT/Add Data_RecipeConfig\", {\"Machinename\":Machinename, \"RecipeName\":RecipeName,\"CycleTarget\":CycleTarget,\"SetupTime\":SetupTime})\n\t\t\t\t#system.db.runNamedQuery(\"INSERT/Add Data_RecipeConfig\", {\"@Machinename\":Machinename, \"@RecipeName\":RecipeName, \"@CycleTarget\":CycleTarget, \"@SetupTime\":SetupTime})\n\t\t\t\t"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button"
+                },
+                "position": {
+                  "basis": "46px"
+                },
+                "props": {
+                  "text": "+ Add"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_3"
+            },
+            "position": {
+              "basis": "47px"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "component": {
+                    "onActionPerformed": {
+                      "config": {
+                        "script": "\timport system\n\t#Read the dataset from RecipeConfig Table\n\tdata \u003d system.db.runNamedQuery(\"SELECT/Recipes/Select RecipesConfig\")\n\tdataset \u003d system.dataset.toDataSet(data)\n\tcsvdata \u003d system.dataset.toCSV(dataset)\n\t\n\t# Prompt the user to choose a file location and name for saving the CSV file\n\tfilePath \u003d \"recipeconfigfile.csv\"\n\t # Download the file in Perspective\n\tsystem.perspective.download(filePath,csvdata)\n\t\n\t    "
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  },
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\t\t\n\t\t    \n\t# Define the parameters for the named query in a dictionary\n\t\tdata \u003d system.db.runNamedQuery(\"SELECT/Recipes/Select RecipesConfig\")\n\t\tdataset \u003d system.dataset.toDataSet(data)\n\t\tcsvdata \u003d system.dataset.toCSV(dataset)\n\t\t\n\t\t# Prompt the user to choose a file location and name for saving the CSV file\n\t\tfilePath \u003d \"C:\\\\Desktop\\\\New folder\\\\file.csv\"\n\t\t\n\t\tif filePath:\n\t\t    try:\n\t\t        # Write the CSV data to the selected file location\n\t\t        system.file.writeFile(filePath, csvdata)\n\t\t        print(\"File successfully written to: \" + filePath)\n\t\t    except Exception as e:\n\t\t        print(\"Error writing file: \" + str(e))"
+                      },
+                      "enabled": false,
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Button"
+                },
+                "position": {
+                  "basis": "46px"
+                },
+                "props": {
+                  "text": "Export"
+                },
+                "type": "ia.input.button"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_5"
+            },
+            "position": {
+              "basis": "47px"
+            },
+            "props": {
+              "direction": "column"
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "events": {
+              "component": {
+                "onFileReceived": {
+                  "config": {
+                    "script": "\t\t\tfilePath \u003d event.file.name\n\t\t\t           \n\t\t\t# Read the CSV file data\n\t\t\tcsvdata \u003d event.file.getString()\n\t\t\t#system.file.readFileAsString(filePath)\n\t\t\tlines \u003d csvdata.splitlines()\n\t\t\tdata \u003d [line.split(\u0027,\u0027) for line in lines]\n\t\t\theaders \u003d [\"Machinename\", \"RecipeName\", \"CycleTarget\", \"SetupTime\"]\n\t\t\tdataset \u003d system.dataset.toDataSet(headers, data)\n\t\t\tpyData \u003d system.dataset.toPyDataSet(dataset)\n\t\t\tdatabaseConnection \u003d \"IgnitionTables\"\n\t\t\tinsertQuery \u003d \"INSERT INTO RecipesConfig (Machinename, RecipeName, CycleTarget, SetupTime) VALUES (?, ?, ?, ? )\"\n\t\t\tMachineNameIndex \u003d headers.index(\u0027Machinename\u0027)\n\t\t\tRecipeNameIndex \u003d headers.index(\u0027RecipeName\u0027)\n\t\t\tfor row in pyData:\n\t\t           if len(row) \u003d\u003d len(headers):\n\t\t               try:\n\t\t                   args \u003d [row[0], row[1], float(row[2]), float(row[3])]\n\t\t                   #print type(row[0]),type (row[1])\n\t\t                   query\u003d \"SELECT * FROM RecipesConfig WHERE Machinename \u003d? AND RecipeName \u003d? \"\n\t\t                   params\u003d [str(row[0]), str(row[1])]\n\t\t                   #system.db.runQuery(query,params,\"IgnitionTables\")\n\t\t                   existing_record \u003d system.db.runScalarPrepQuery(query,params,\"IgnitionTables\")\n\t\t                   print existing_record\n\t\t                   if existing_record:\n\t\t                       updateQuery \u003d \"UPDATE RecipesConfig SET Machinename \u003d ?, RecipeName \u003d ?, CycleTarget \u003d ?, SetupTime \u003d ? Where Machinename \u003d ? AND RecipeName \u003d ? \"\n\t\t                       updateArgs \u003d [args[0], args[1], args[2], args[3], args[0], args[1]]\n\t\t                       system.db.runPrepUpdate(updateQuery,  updateArgs, databaseConnection)\n\t\t                       print(\"Updated row with MachineName: {row[MachineNameIndex]} and RecipeName: {row[RecipeNameIndex]}\")\n\t\t                   else:\n\t\t                       system.db.runPrepUpdate(insertQuery, args, databaseConnection)\n\t\t                       print(\"Inserted new row with MachineName: {row[MachineNameIndex]} and RecipeName: {row[RecipeNameIndex]}\")\n\t\t               except ValueError:\n\t\t                   print(\"Error converting CycleTarget or SetupTime to float. Skipping row.\")\n\t\t           else:\n\t\t               print(\"Header error\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "FileUpload"
+            },
+            "position": {
+              "basis": "145px"
+            },
+            "props": {
+              "fileUploadIcon": {
+                "color": "#47FFFF",
+                "style": {
+                  "borderStyle": "solid"
+                }
+              }
+            },
+            "type": "ia.input.fileupload"
+          }
+        ],
+        "meta": {
+          "contextMenu": {
+            "style": {
+              "borderBottomLeftRadius": 10,
+              "borderBottomRightRadius": 10,
+              "borderTopLeftRadius": 10,
+              "borderTopRightRadius": 10
+            }
+          },
+          "name": "FlexContainer"
+        },
+        "position": {
+          "height": 0.58,
+          "width": 0.8189,
+          "y": 0.0813
+        },
+        "props": {
+          "direction": "column",
+          "justify": "space-between",
+          "style": {
+            "backgroundColor": "#AAAAAA",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px",
+            "margin": "5px",
+            "padding": "5px",
+            "paddingLeft": "5px",
+            "paddingRight": "5px"
+          }
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "4000px",
+              "grow": 1
+            },
+            "props": {
+              "text": "Recipe Configuration "
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Label_0"
+            },
+            "position": {
+              "basis": "430.6px"
+            },
+            "props": {
+              "text": "SFO"
+            },
+            "type": "ia.display.label"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_0",
+          "tooltip": {
+            "style": {
+              "borderColor": "#D5D5D5",
+              "borderStyle": "solid"
+            }
+          }
+        },
+        "position": {
+          "height": 0.0875,
+          "width": 0.8239
+        },
+        "props": {
+          "style": {
+            "backgroundColor": "#808080",
+            "borderBottomLeftRadius": "10px",
+            "borderBottomRightRadius": "10px",
+            "borderStyle": "solid",
+            "borderTopLeftRadius": "10px",
+            "borderTopRightRadius": "10px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "mode": "percent"
+    },
+    "type": "ia.container.coord"
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "custom": {},
+  "params": {
+    "CycleTarget": "value",
+    "CycleTime": "value",
+    "LineID": "value",
+    "LineName": null,
+    "MachineName": "value",
+    "RecipeID": "value",
+    "RecipeName": "value"
+  },
+  "propConfig": {
+    "params.CycleTarget": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.CycleTime": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.LineID": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.LineName": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "LineID": "{/root/Line/Dropdown.props.value}"
+          },
+          "queryPath": "RecipeManagement/LineName",
+          "returnFormat": "scalar"
+        },
+        "type": "query"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    },
+    "params.MachineName": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.RecipeID": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.RecipeName": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 401,
+      "width": 382
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "165px"
+            },
+            "props": {
+              "text": "Edit Recipe"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Close Button"
+            },
+            "props": {
+              "image": {
+                "height": 30,
+                "icon": {
+                  "path": "material/close"
+                },
+                "position": "right",
+                "width": 30
+              },
+              "justify": "end",
+              "style": {
+                "backgroundColor": "#FFFFFF00"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "42px"
+        },
+        "props": {
+          "justify": "space-between"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "text": "Line Name :"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "211px"
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "queryPath": "RecipeManagement/LineInstances"
+                  },
+                  "type": "query"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.LineID"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "Line"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "text": "Machine Name :"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "211px"
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "parameters": {
+                      "LineID": "{.../Line/Dropdown.props.value}"
+                    },
+                    "queryPath": "RecipeManagement/MachineInstances"
+                  },
+                  "type": "query"
+                }
+              },
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.MachineName"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "Machine"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "text": "Recipe Name :"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "TextField"
+            },
+            "position": {
+              "basis": "211px"
+            },
+            "propConfig": {
+              "props.text": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.RecipeName"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "Recipe Name"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "text": "Cycle Target :"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "211px"
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.CycleTarget"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "align": "left",
+              "spinner": {
+                "enabled": false
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "CycleTarget"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "text": "Cycle Time :"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "211px"
+            },
+            "propConfig": {
+              "props.value": {
+                "binding": {
+                  "config": {
+                    "path": "view.params.CycleTime"
+                  },
+                  "type": "property"
+                }
+              }
+            },
+            "props": {
+              "align": "left",
+              "spinner": {
+                "enabled": false
+              }
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "CycleTime"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\timport time\n\tRecipeID \u003d self.view.params.RecipeID\n\tLineName \u003d self.view.params.LineName\n\tMachineName  \u003d self.parent.parent.getChild(\"Machine\").getChild(\"Dropdown\").props.value\n\tRecipeName \u003d self.parent.parent.getChild(\"Recipe Name\").getChild(\"TextField\").props.text\n\tCycleTarget \u003d self.parent.parent.getChild(\"CycleTarget\").getChild(\"NumericEntryField\").props.value\n\tSetupTime \u003d self.parent.parent.getChild(\"CycleTime\").getChild(\"NumericEntryField\").props.value\n\tparams \u003d {\"RecipeID\":RecipeID,\"LineName\":LineName,\"MachineName\":MachineName,\"RecipeName\":RecipeName,\"CycleTarget\":CycleTarget,\"SetupTime\":SetupTime}\n\tsystem.db.runNamedQuery(\u0027RecipeTargetConfiguration/RecipeUpdate\u0027,params)\n\t\n\ttime.sleep (3)\n\tself.props.value\u003d 0"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "OneShotButton"
+            },
+            "position": {
+              "basis": "140px"
+            },
+            "props": {
+              "readyState": {
+                "icon": {
+                  "path": "material/system_update_alt",
+                  "style": {
+                    "height": "24px",
+                    "width": "2rem"
+                  }
+                },
+                "text": "Update"
+              },
+              "writingState": {
+                "icon": {
+                  "path": "material/hourglass_empty",
+                  "style": {
+                    "height": "24px",
+                    "width": "2rem"
+                  }
+                },
+                "text": "Updating..."
+              }
+            },
+            "type": "ia.input.oneshotbutton"
+          }
+        ],
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "39px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "justify": "space-between",
+      "style": {
+        "borderColor": "#555555",
+        "borderStyle": "solid",
+        "classes": "Pagecard",
+        "margin": 0,
+        "opacity": "1",
+        "padding": 15,
+        "transition": "width 30s ease-in"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

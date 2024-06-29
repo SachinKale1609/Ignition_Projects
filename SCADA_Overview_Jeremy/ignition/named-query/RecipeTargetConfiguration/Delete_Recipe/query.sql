@@ -1,0 +1,1 @@
+Delete from  SCADA.dbo.RecipeRunTargets   where    RecipeID = :RecipeID

@@ -1,0 +1,65 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "SCADA",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "d0e007e74bd20178a2a5e00022ead9c9245d849150cb8e99cf182fcda32fc9fd",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "ITC Ignition",
+      "timestamp": "2024-05-23T08:20:47Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "MachineName",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "LineName",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "RecipeName",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "CycleTarget",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "SetupTime",
+        "sqlType": 5
+      },
+      {
+        "type": "Parameter",
+        "identifier": "RecipeID",
+        "sqlType": 7
+      }
+    ]
+  }
+}

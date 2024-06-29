@@ -1,0 +1,15 @@
+{
+  "pages": {
+    "/": {
+      "title": "",
+      "viewPath": "4- Recipe Target Configuration/RecipeTarget"
+    },
+    "/um": {
+      "title": "",
+      "viewPath": "UserManagement/UserManagementV2"
+    }
+  },
+  "sharedDocks": {
+    "cornerPriority": "top-bottom"
+  }
+}

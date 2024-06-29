@@ -1,0 +1,16 @@
+{
+  "scope": "C",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "data.bin"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "ITC Ignition",
+      "timestamp": "2024-05-02T04:28:31Z"
+    },
+    "lastModificationSignature": "b044ce3c807f71fd6ab5335726614f12274827125e17e0a371124f796c25a61b"
+  }
+}

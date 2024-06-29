@@ -1,0 +1,113 @@
+{
+  "custom": {},
+  "params": {
+    "RecipeID": "value"
+  },
+  "propConfig": {
+    "params.RecipeID": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 88,
+      "width": 373
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "basis": "100px",
+          "grow": 1
+        },
+        "props": {
+          "text": "                       Are you sure you want to delete?",
+          "textStyle": {
+            "color": "#000000"
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\"QF1SIWqp\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "58.1px",
+              "grow": 1
+            },
+            "props": {
+              "text": "No"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t\tRecipeName \u003d self.view.params.RecipeID\n\t\tsystem.db.runNamedQuery(\u0027RecipeTargetConfiguration/Delete_Recipe\u0027,{\u0027RecipeID\u0027:RecipeName})\n\t\tsystem.perspective.closePopup(\"QF1SIWqp\")"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_0"
+            },
+            "position": {
+              "basis": "58.1px",
+              "grow": 1
+            },
+            "props": {
+              "text": "Yes"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "props": {
+          "alignContent": "space-between",
+          "alignItems": "center",
+          "justify": "space-between"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

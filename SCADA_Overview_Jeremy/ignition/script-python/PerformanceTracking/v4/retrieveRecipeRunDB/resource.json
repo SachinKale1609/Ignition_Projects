@@ -1,0 +1,17 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "code.py"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "ITC Ignition",
+      "timestamp": "2024-06-05T09:46:26Z"
+    },
+    "hintScope": 2,
+    "lastModificationSignature": "5bbd03ba21065bfda2cdb78d0c7939884550e50e6ef1d1ab11e282a16d6ff60f"
+  }
+}

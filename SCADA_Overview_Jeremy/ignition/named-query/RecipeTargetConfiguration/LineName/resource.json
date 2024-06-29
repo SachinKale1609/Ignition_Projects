@@ -1,0 +1,40 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "Query",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "SCADA",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "8736fa8c4869b90f242d808cbbfc0549c8592b731ad51610c43c9946aac4cb2e",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "ITC Ignition",
+      "timestamp": "2024-05-23T07:26:44Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "LineID",
+        "sqlType": 2
+      }
+    ]
+  }
+}

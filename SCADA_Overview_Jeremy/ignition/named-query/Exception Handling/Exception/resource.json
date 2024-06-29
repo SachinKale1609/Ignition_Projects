@@ -1,0 +1,50 @@
+{
+  "scope": "DG",
+  "version": 2,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "query.sql"
+  ],
+  "attributes": {
+    "useMaxReturnSize": false,
+    "autoBatchEnabled": false,
+    "fallbackValue": "",
+    "maxReturnSize": 100,
+    "cacheUnit": "SEC",
+    "type": "UpdateQuery",
+    "enabled": true,
+    "cacheAmount": 1,
+    "cacheEnabled": false,
+    "database": "SCADA",
+    "fallbackEnabled": false,
+    "lastModificationSignature": "4efde3f3dce7fee665831438fca80d31b6d3d147ccf5a39f8b1f3738117a85d8",
+    "permissions": [
+      {
+        "zone": "",
+        "role": ""
+      }
+    ],
+    "lastModification": {
+      "actor": "ITC Ignition",
+      "timestamp": "2024-05-02T12:48:19Z"
+    },
+    "parameters": [
+      {
+        "type": "Parameter",
+        "identifier": "Error2",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Error3",
+        "sqlType": 7
+      },
+      {
+        "type": "Parameter",
+        "identifier": "Error1",
+        "sqlType": 7
+      }
+    ]
+  }
+}

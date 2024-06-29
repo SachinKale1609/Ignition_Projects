@@ -1,0 +1,17 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "view.json",
+    "thumbnail.png"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "ITC Ignition",
+      "timestamp": "2024-06-04T16:35:20Z"
+    },
+    "lastModificationSignature": "4f17db564c53b2ad5612d965fa1d98b7e4e69826c215a18240de7a86ab3711ef"
+  }
+}

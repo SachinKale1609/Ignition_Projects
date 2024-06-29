@@ -1,0 +1,16 @@
+{
+  "scope": "G",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "ITC Ignition",
+      "timestamp": "2024-05-23T08:31:04Z"
+    },
+    "lastModificationSignature": "21b27767b620eeca1db7af0dbc227b58565fb8f17f537920442e23d118002fa1"
+  }
+}

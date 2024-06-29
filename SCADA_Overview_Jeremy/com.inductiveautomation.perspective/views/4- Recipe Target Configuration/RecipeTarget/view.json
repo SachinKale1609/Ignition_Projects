@@ -1,0 +1,1057 @@
+{
+  "custom": {},
+  "params": {
+    "LineID": null
+  },
+  "propConfig": {
+    "params.LineID": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "LineName": "{/root/FlexContainer/Table.props.selection.data[0].LineName}"
+          },
+          "queryPath": "RecipeManagement/LineID",
+          "returnFormat": "scalar"
+        },
+        "type": "query"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 900,
+      "width": 1600
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "events": {
+              "component": {
+                "onRowDoubleClick": {
+                  "config": {
+                    "script": "\tRecipeID\u003dself.props.selection.data[0].RecipeID\n\tLineID\u003dself.view.params.LineID\n\tLineName\u003dself.props.selection.data[0].LineName\n\tMachineName\u003dself.props.selection.data[0].Machinename\n\tRecipeName\u003dself.props.selection.data[0].RecipeName\n\tCycleTarget\u003dself.props.selection.data[0].CycleTarget\n\tCycleTime\u003dself.props.selection.data[0].SetupTime\n\tparams\u003d{\"RecipeID\":RecipeID,\"LineID\":LineID,\"LineName\":LineName,\"MachineName\":MachineName,\"RecipeName\":RecipeName,\n\t\"CycleTarget\":CycleTarget,\"CycleTime\":CycleTime}\n\tsystem.perspective.openPopup(\u0027XMZGaTAO\u0027,\u0027RecipeManagement/Popup/RecipeEditPopup\u0027, params, showCloseIcon \u003d False, draggable \u003d False)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Table"
+            },
+            "position": {
+              "basis": "795px",
+              "grow": 1
+            },
+            "propConfig": {
+              "props.data": {
+                "binding": {
+                  "config": {
+                    "polling": {
+                      "enabled": true,
+                      "rate": "5"
+                    },
+                    "queryPath": "RecipeTargetConfiguration/RecipeTable"
+                  },
+                  "type": "query"
+                }
+              }
+            },
+            "props": {
+              "columns": [
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "Machinename",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Machine Name"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "RecipeName",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Recipe Name"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "CycleTarget",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Cycle Target"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "SetupTime",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "center",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": "Cycle Time"
+                  },
+                  "justify": "center",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": true,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "RecipeID",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "justify": "auto",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": false,
+                  "width": ""
+                },
+                {
+                  "align": "center",
+                  "boolean": "checkbox",
+                  "dateFormat": "MM/DD/YYYY",
+                  "editable": false,
+                  "field": "MachineName",
+                  "filter": {
+                    "boolean": {
+                      "condition": ""
+                    },
+                    "date": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "enabled": false,
+                    "number": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "string": {
+                      "condition": "",
+                      "value": ""
+                    },
+                    "visible": "on-hover"
+                  },
+                  "footer": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "header": {
+                    "align": "center",
+                    "justify": "left",
+                    "style": {
+                      "classes": ""
+                    },
+                    "title": ""
+                  },
+                  "justify": "auto",
+                  "nullFormat": {
+                    "includeNullStrings": false,
+                    "nullFormatValue": "",
+                    "strict": false
+                  },
+                  "number": "value",
+                  "numberFormat": "0,0.##",
+                  "progressBar": {
+                    "bar": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "max": 100,
+                    "min": 0,
+                    "track": {
+                      "color": "",
+                      "style": {
+                        "classes": ""
+                      }
+                    },
+                    "value": {
+                      "enabled": true,
+                      "format": "0,0.##",
+                      "justify": "center",
+                      "style": {
+                        "classes": ""
+                      }
+                    }
+                  },
+                  "render": "auto",
+                  "resizable": true,
+                  "sort": "none",
+                  "sortable": true,
+                  "strictWidth": false,
+                  "style": {
+                    "classes": ""
+                  },
+                  "toggleSwitch": {
+                    "color": {
+                      "selected": "",
+                      "unselected": ""
+                    }
+                  },
+                  "viewParams": {},
+                  "viewPath": "",
+                  "visible": false,
+                  "width": ""
+                }
+              ],
+              "filter": {
+                "enabled": true
+              },
+              "pager": {
+                "bottom": false,
+                "initialOption": 10
+              }
+            },
+            "type": "ia.display.table"
+          },
+          {
+            "children": [
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\timport time\n\t\n\t# Refresh user table binding and rotate refresh icon.\n\tself.parent.parent.getChild(\"Table\").refreshBinding(\"props.data\")\n\tself.rotateIcon()"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Refresh",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Refresh"
+                  }
+                },
+                "position": {
+                  "basis": "26px",
+                  "shrink": 0
+                },
+                "props": {
+                  "color": "#5A5A5A",
+                  "path": "material/refresh",
+                  "style": {
+                    "classes": "UserManagement/TableEditorIcons",
+                    "marginBottom": "10px",
+                    "transform": "rotate(360deg)"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "rotateIcon",
+                      "params": [],
+                      "script": "\timport time\n\t\n\t# Rotate icon 360 degrees.\n\tfor degree in range(0,361, 10):\n\t\tself.props.style.transform \u003d \u0027rotate(\u0027 + str(degree) + \u0027deg)\u0027\n\t\ttime.sleep(0.0278)"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": [
+                    {
+                      "messageType": "UserManagement_RefreshTables",
+                      "pageScope": true,
+                      "script": "\t# Refresh user table binding\n\tself.parent.parent.getChild(\"Table\").refreshBinding(\"props.data\")",
+                      "sessionScope": false,
+                      "viewScope": false
+                    }
+                  ]
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "script": "\tRecipeID\u003dself.parent.parent.getChild(\"Table\").props.selection.data[0].RecipeID\n\tLineID\u003dself.view.params.LineID\n\tLineName\u003dself.parent.parent.getChild(\"Table\").props.selection.data[0].LineName\n\tMachineName\u003dself.parent.parent.getChild(\"Table\").props.selection.data[0].Machinename\n\tRecipeName\u003dself.parent.parent.getChild(\"Table\").props.selection.data[0].RecipeName\n\tCycleTarget\u003dself.parent.parent.getChild(\"Table\").props.selection.data[0].CycleTarget\n\tCycleTime\u003dself.parent.parent.getChild(\"Table\").props.selection.data[0].SetupTime\n\tparams\u003d{\"RecipeID\":RecipeID,\"LineID\":LineID,\"LineName\":LineName,\"MachineName\":MachineName,\"RecipeName\":RecipeName,\n\t\"CycleTarget\":CycleTarget,\"CycleTime\":CycleTime}\n\tsystem.perspective.openPopup(\u0027XMZGaTAO\u0027,\u00274- Recipe Target Configuration/Popup/RecipeEditPopup\u0027, params, showCloseIcon \u003d False, draggable \u003d False)"
+                      },
+                      "scope": "G",
+                      "type": "script"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Edit",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Edit"
+                  }
+                },
+                "position": {
+                  "basis": "24px",
+                  "shrink": 0
+                },
+                "propConfig": {
+                  "props.color": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#C9C9C9",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "null",
+                              "output": "#5A5A5A"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.cursor": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "pointer",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "None",
+                              "output": "auto"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "path": "material/create",
+                  "style": {
+                    "classes": "UserManagement/TableEditorIcons",
+                    "marginBottom": "10px"
+                  }
+                },
+                "scripts": {
+                  "customMethods": [
+                    {
+                      "name": "editUser",
+                      "params": [],
+                      "script": "\t# If a table row is selected, navigates to the AddEditUser view to edit the selected user.\n\tif self.parent.parent.getChild(\"Table\").props.selection.selectedRow !\u003d None:\t\n\t\tself.view.params.mode \u003d \"edit\"\n\t\tsystem.perspective.sendMessage(\"UserManagement_ChangeView\", payload\u003d{\"view\":\"addEditUser\"}, scope\u003d\"page\")"
+                    }
+                  ],
+                  "extensionFunctions": null,
+                  "messageHandlers": []
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": [
+                      {
+                        "config": {
+                          "params": {},
+                          "view": "UserManagement/Views/BadgeLookup"
+                        },
+                        "scope": "C",
+                        "type": "nav"
+                      },
+                      {
+                        "config": {
+                          "draggable": true,
+                          "id": "y2ziSe_5",
+                          "modal": false,
+                          "overlayDismiss": false,
+                          "position": {
+                            "relativeLocation": "bottom-left"
+                          },
+                          "positionType": "relative",
+                          "resizable": true,
+                          "showCloseIcon": true,
+                          "type": "close",
+                          "viewPath": "UserManagement/Views/Popups/Popup_ BadgeLookup",
+                          "viewportBound": false
+                        },
+                        "scope": "C",
+                        "type": "popup"
+                      }
+                    ],
+                    "onMouseEnter": {
+                      "config": {
+                        "draggable": false,
+                        "id": "y2ziSe_5",
+                        "modal": false,
+                        "overlayDismiss": false,
+                        "position": {
+                          "relativeLocation": "bottom-left"
+                        },
+                        "positionType": "relative",
+                        "resizable": false,
+                        "showCloseIcon": false,
+                        "type": "open",
+                        "viewPath": "UserManagement/Views/Popups/Popup_ BadgeLookup",
+                        "viewportBound": false
+                      },
+                      "scope": "C",
+                      "type": "popup"
+                    },
+                    "onMouseLeave": {
+                      "config": {
+                        "draggable": false,
+                        "id": "y2ziSe_5",
+                        "modal": false,
+                        "overlayDismiss": false,
+                        "position": {
+                          "relativeLocation": "bottom-left"
+                        },
+                        "positionType": "relative",
+                        "resizable": false,
+                        "showCloseIcon": false,
+                        "type": "close",
+                        "viewPath": "UserManagement/Views/Popups/Popup_ BadgeLookup",
+                        "viewportBound": false
+                      },
+                      "scope": "C",
+                      "type": "popup"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Lookup_badge"
+                },
+                "position": {
+                  "basis": "30px",
+                  "display": false
+                },
+                "props": {
+                  "path": "material/search",
+                  "style": {
+                    "marginBottom": "10px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": {
+                      "config": {
+                        "draggable": false,
+                        "id": "Z4J_yUwH",
+                        "modal": false,
+                        "overlayDismiss": false,
+                        "resizable": false,
+                        "showCloseIcon": false,
+                        "type": "open",
+                        "viewPath": "4- Recipe Target Configuration/Popup/RecipeInsertPopup",
+                        "viewportBound": false
+                      },
+                      "scope": "C",
+                      "type": "popup"
+                    }
+                  }
+                },
+                "meta": {
+                  "name": "Add",
+                  "tooltip": {
+                    "enabled": true,
+                    "text": "Add"
+                  }
+                },
+                "position": {
+                  "basis": "30px"
+                },
+                "props": {
+                  "path": "material/add",
+                  "style": {
+                    "marginBottom": "10px"
+                  }
+                },
+                "type": "ia.display.icon"
+              },
+              {
+                "events": {
+                  "dom": {
+                    "onClick": [
+                      {
+                        "config": {
+                          "script": "\t#RecipeName \u003d self.parent.parent.getChild(\"Table\").props.selection.data[0].RecipeID\n\t#system.db.runNamedQuery(\u0027RecipeTargetConfiguration/Delete_Recipe\u0027,{\u0027RecipeID\u0027:RecipeName})"
+                        },
+                        "scope": "G",
+                        "type": "script"
+                      },
+                      {
+                        "config": {
+                          "draggable": true,
+                          "id": "QF1SIWqp",
+                          "modal": false,
+                          "overlayDismiss": false,
+                          "resizable": true,
+                          "showCloseIcon": true,
+                          "type": "open",
+                          "viewParams": {
+                            "RecipeID": "{/root/FlexContainer/Table.props.selection.data[0].RecipeID}"
+                          },
+                          "viewPath": "4- Recipe Target Configuration/Popup/Confirmation",
+                          "viewportBound": false
+                        },
+                        "scope": "C",
+                        "type": "popup"
+                      }
+                    ]
+                  }
+                },
+                "meta": {
+                  "name": "OneShotButton"
+                },
+                "position": {
+                  "basis": "34px"
+                },
+                "propConfig": {
+                  "props.confirm.text": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.data"
+                      },
+                      "transforms": [
+                        {
+                          "expression": "\u0027Delete Receipe \u0027",
+                          "type": "expression"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  },
+                  "props.style.color": {
+                    "binding": {
+                      "config": {
+                        "path": ".../Table.props.selection.selectedRow"
+                      },
+                      "transforms": [
+                        {
+                          "fallback": "#C9C9C9",
+                          "inputType": "expression",
+                          "mappings": [
+                            {
+                              "input": "null",
+                              "output": "#5A5A5A"
+                            }
+                          ],
+                          "outputType": "scalar",
+                          "type": "map"
+                        }
+                      ],
+                      "type": "property"
+                    }
+                  }
+                },
+                "props": {
+                  "confirm": {
+                    "enabled": true
+                  },
+                  "readyState": {
+                    "icon": {
+                      "path": "material/delete",
+                      "style": {
+                        "height": "24px",
+                        "width": "2rem"
+                      }
+                    },
+                    "style": {
+                      "classes": "UserManagement/TableEditorIcons"
+                    },
+                    "text": ""
+                  },
+                  "style": {
+                    "backgroundColor": "#FFA50000",
+                    "classes": "UserManagement/TableEditorIcons"
+                  },
+                  "writingState": {
+                    "icon": {
+                      "path": "material/sync_problem",
+                      "style": {
+                        "height": "24px",
+                        "width": "2rem"
+                      }
+                    },
+                    "style": {
+                      "classes": "UserManagement/TableEditorIcons"
+                    },
+                    "text": ""
+                  }
+                },
+                "type": "ia.input.oneshotbutton"
+              }
+            ],
+            "meta": {
+              "name": "Icons"
+            },
+            "position": {
+              "basis": "50px",
+              "shrink": 0
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "overflow": "hidden"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "basis": "100%",
+          "grow": 1
+        },
+        "props": {
+          "style": {
+            "classes": "PageCard",
+            "margin": "15px",
+            "padding": "20px"
+          }
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "classes": "themeGradient"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

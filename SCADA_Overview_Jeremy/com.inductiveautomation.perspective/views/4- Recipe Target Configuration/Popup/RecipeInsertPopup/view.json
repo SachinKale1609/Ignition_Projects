@@ -1,0 +1,503 @@
+{
+  "custom": {},
+  "params": {
+    "LineName": null
+  },
+  "propConfig": {
+    "params.LineName": {
+      "binding": {
+        "config": {
+          "parameters": {
+            "LineID": "{/root/Line/Dropdown.props.value}"
+          },
+          "queryPath": "RecipeManagement/LineName",
+          "returnFormat": "scalar"
+        },
+        "type": "query"
+      },
+      "paramDirection": "output",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 475,
+      "width": 382
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "165px"
+            },
+            "props": {
+              "text": "Add New Recipe"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\tsystem.perspective.closePopup(\u0027\u0027)"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Close Button"
+            },
+            "props": {
+              "image": {
+                "height": 30,
+                "icon": {
+                  "path": "material/close"
+                },
+                "position": "right",
+                "width": 30
+              },
+              "justify": "end",
+              "style": {
+                "backgroundColor": "#FFFFFF00"
+              },
+              "text": ""
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Header"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "space-between"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "text": "Line Name :"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "211px"
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "queryPath": "RecipeTargetConfiguration/LineInstances"
+                  },
+                  "type": "query"
+                }
+              }
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "Line"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "text": "Machine Name :"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "Dropdown"
+            },
+            "position": {
+              "basis": "211px"
+            },
+            "propConfig": {
+              "props.options": {
+                "binding": {
+                  "config": {
+                    "parameters": {
+                      "LineID": "{.../Line/Dropdown.props.value}"
+                    },
+                    "queryPath": "RecipeTargetConfiguration/MachineInstances"
+                  },
+                  "type": "query"
+                }
+              }
+            },
+            "type": "ia.input.dropdown"
+          }
+        ],
+        "meta": {
+          "name": "Machine"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "text": "Recipe Name :"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "TextField"
+            },
+            "position": {
+              "basis": "211px"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "Len({.../Machine/Dropdown.props.value})\u003e2"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "text": " "
+            },
+            "type": "ia.input.text-field"
+          }
+        ],
+        "meta": {
+          "name": "Recipe Name"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "text": "Cycle Target :"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "211px"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "len({.../Recipe Name/TextField.props.text})\u003e3"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "spinner": {
+                "enabled": false
+              },
+              "value": " "
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "CycleTarget"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Label"
+            },
+            "position": {
+              "basis": "125px"
+            },
+            "props": {
+              "text": "Cycle Time :"
+            },
+            "type": "ia.display.label"
+          },
+          {
+            "meta": {
+              "name": "NumericEntryField"
+            },
+            "position": {
+              "basis": "211px"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "len({.../Recipe Name/TextField.props.text})\u003e3"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "spinner": {
+                "enabled": false
+              },
+              "value": " "
+            },
+            "type": "ia.input.numeric-entry-field"
+          }
+        ],
+        "meta": {
+          "name": "CycleTime"
+        },
+        "position": {
+          "basis": "40px"
+        },
+        "props": {
+          "justify": "center"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\timport time\n\tLineName \u003d self.view.params.LineName\n\tMachineName  \u003d self.parent.parent.getChild(\"Machine\").getChild(\"Dropdown\").props.value\n\tRecipeName \u003d self.parent.parent.getChild(\"Recipe Name\").getChild(\"TextField\").props.text\n\tCycleTarget \u003d self.parent.parent.getChild(\"CycleTarget\").getChild(\"NumericEntryField\").props.value\n\tSetupTime \u003d self.parent.parent.getChild(\"CycleTime\").getChild(\"NumericEntryField\").props.value\n\tparams \u003d {\"LineName\":LineName,\"MachineName\":MachineName,\"RecipeName\":RecipeName,\"CycleTarget\":CycleTarget,\"SetupTime\":SetupTime}\n\tsystem.db.runNamedQuery(\u0027RecipeTargetConfiguration/RecipeInsert\u0027,params)\n\ttime.sleep (3)\n\tself.parent.parent.getChild(\"Line\").getChild(\"Dropdown\").props.value\u003d\" \"\t\n\tself.parent.parent.getChild(\"Machine\").getChild(\"Dropdown\").props.value\u003d\" \"\n\tself.parent.parent.getChild(\"Recipe Name\").getChild(\"TextField\").props.text\u003d\" \"\n\tself.parent.parent.getChild(\"CycleTarget\").getChild(\"NumericEntryField\").props.value\u003d\" \"\n\tself.parent.parent.getChild(\"CycleTime\").getChild(\"NumericEntryField\").props.value\u003d\" \"\n\tself.props.value\u003d0"
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "OneShotButton"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "propConfig": {
+              "props.enabled": {
+                "binding": {
+                  "config": {
+                    "expression": "Len({.../Machine/Dropdown.props.value})\u003e3 \u0026\u0026 Len ({.../Recipe Name/TextField.props.text})\u003e3 \u0026\u0026\r\n({.../CycleTarget/NumericEntryField.props.value})\u003e0 \u0026\u0026 ({.../CycleTime/NumericEntryField.props.value})\u003e0\r\n"
+                  },
+                  "type": "expr"
+                }
+              }
+            },
+            "props": {
+              "readyState": {
+                "icon": {
+                  "style": {
+                    "height": "24px",
+                    "width": "2rem"
+                  }
+                },
+                "text": "+ Add"
+              },
+              "writingState": {
+                "icon": {
+                  "path": "material/hourglass_empty",
+                  "style": {
+                    "height": "24px",
+                    "width": "2rem"
+                  }
+                },
+                "text": "Inserting..."
+              }
+            },
+            "type": "ia.input.oneshotbutton"
+          },
+          {
+            "events": {
+              "component": {
+                "onActionPerformed": {
+                  "config": {
+                    "script": "\timport system\n\t#Read the dataset from RecipeConfig Table\n\tdata \u003d system.db.runNamedQuery(\"RecipeTargetConfiguration/RecipeTable\")\n\tdataset \u003d system.dataset.toDataSet(data)\n\tcsvdata \u003d system.dataset.toCSV(dataset)\n\t\n\t# Prompt the user to choose a file location and name for saving the CSV file\n\tfilePath \u003d \"recipeconfigfile.csv\"\n\t # Download the file in Perspective\n\tsystem.perspective.download(filePath,csvdata)\n\t\n\t    "
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              },
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\t\t\n\t\t    \n\t# Define the parameters for the named query in a dictionary\n\t\tdata \u003d system.db.runNamedQuery(\"SELECT/Recipes/Select RecipesConfig\")\n\t\tdataset \u003d system.dataset.toDataSet(data)\n\t\tcsvdata \u003d system.dataset.toCSV(dataset)\n\t\t\n\t\t# Prompt the user to choose a file location and name for saving the CSV file\n\t\tfilePath \u003d \"C:\\\\Desktop\\\\New folder\\\\file.csv\"\n\t\t\n\t\tif filePath:\n\t\t    try:\n\t\t        # Write the CSV data to the selected file location\n\t\t        system.file.writeFile(filePath, csvdata)\n\t\t        print(\"File successfully written to: \" + filePath)\n\t\t    except Exception as e:\n\t\t        print(\"Error writing file: \" + str(e))"
+                  },
+                  "enabled": false,
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "text": "Export"
+            },
+            "type": "ia.input.button"
+          },
+          {
+            "events": {
+              "dom": {
+                "onClick": {
+                  "config": {
+                    "script": "\tself.parent.parent.getChild(\"Line\").getChild(\"Dropdown\").props.value\u003d\" \"\t\n\tself.parent.parent.getChild(\"Machine\").getChild(\"Dropdown\").props.value\u003d\" \"\n\tself.parent.parent.getChild(\"Recipe Name\").getChild(\"TextField\").props.text\u003d\" \"\n\tself.parent.parent.getChild(\"CycleTarget\").getChild(\"NumericEntryField\").props.value\u003d\" \"\n\tself.parent.parent.getChild(\"CycleTime\").getChild(\"NumericEntryField\").props.value\u003d\" \""
+                  },
+                  "scope": "G",
+                  "type": "script"
+                }
+              }
+            },
+            "meta": {
+              "name": "Button_0"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "image": {
+                "icon": {
+                  "path": "material/loop"
+                }
+              },
+              "text": "Refresh"
+            },
+            "type": "ia.input.button"
+          }
+        ],
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "basis": "39px"
+        },
+        "props": {
+          "justify": "space-around"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "events": {
+          "component": {
+            "onFileReceived": {
+              "config": {
+                "script": "\t\t\tfilePath \u003d event.file.name\n\t\t\t           \n\t\t\t# Read the CSV file data\n\t\t\tcsvdata \u003d event.file.getString()\n\t\t\t#system.file.readFileAsString(filePath)\n\t\t\tlines \u003d csvdata.splitlines()\n\t\t\tdata \u003d [line.split(\u0027,\u0027) for line in lines]\n\t\t\theaders \u003d [\"RecipeID\", \"LineName\", \"Machinename\", \"RecipeName\", \"CycleTarget\", \"SetupTime\"]\n\t\t\tdataset \u003d system.dataset.toDataSet(headers, data)\n\t\t\tpyData \u003d system.dataset.toPyDataSet(dataset)\n\t\t\tdatabaseConnection \u003d \"SCADA\"\n\t\t\tinsertQuery \u003d \"INSERT INTO RecipeRunTargets (LineName, Machinename, RecipeName, CycleTarget, SetupTime) VALUES (?, ?, ?, ?, ? )\"\n\t\t\tRecipeIDIndex \u003d headers.index(\u0027RecipeID\u0027)\n\t\t\tLineNameIndex \u003d headers.index(\u0027LineName\u0027)\n\t\t\tfor row in pyData:\n\t\t           if len(row) \u003d\u003d len(headers):\n\t\t               try:\n\t\t                   args \u003d [row[0],row[1],row[2],row[3],float(row[4]),float(row[5])]\n\t\t                   args1 \u003d [row[1],row[2],row[3],float(row[4]),float(row[5])]\n\t\t                   #print type(row[0]),type (row[1])\n\t\t                   query\u003d \"SELECT * FROM RecipeRunTargets WHERE RecipeID \u003d? AND RecipeName \u003d? \"\n\t\t                   params\u003d [row[0],str(row[3])]\n\t\t                   #system.db.runQuery(query,params,\"IgnitionTables\")\n\t\t                   existing_record \u003d system.db.runScalarPrepQuery(query,params,\"SCADA\")\n\t\t                   print existing_record\n\t\t                   if existing_record:\n\t\t                       updateQuery \u003d \"UPDATE RecipeRunTargets SET LineName\u003d?, Machinename \u003d ?, RecipeName \u003d ?, CycleTarget \u003d ?, SetupTime \u003d ? Where RecipeID \u003d ? \"\n\t\t                       updateArgs \u003d [(args[1]), (args[2]), (args[3]), args[4], args[5],args[0]]\n\t\t                       system.db.runPrepUpdate(updateQuery,  updateArgs, databaseConnection)\n\t\t                       print(\"Updated row with RecipeID: {row[RecipeIDIndex]} and LineName: {row[LineNameIndex]}\")\n\t\t                   else:\n\t\t                       system.db.runPrepUpdate(insertQuery, args1, databaseConnection)\n\t\t                       print(\"Inserted new row with RecipeID: {row[RecipeIDIndex]}\")\n\t\t               except ValueError:\n\t\t                   print(\"Error converting CycleTarget or SetupTime to float. Skipping row.\")\n\t\t           else:\n\t\t               print(\"Header error\")"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "FileUpload"
+        },
+        "position": {
+          "basis": "120px"
+        },
+        "props": {
+          "fileUploadIcon": {
+            "color": "#47FFFF",
+            "style": {
+              "borderStyle": "solid"
+            }
+          }
+        },
+        "type": "ia.input.fileupload"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "justify": "space-around",
+      "style": {
+        "borderColor": "#555555",
+        "borderStyle": "solid",
+        "classes": "PageCard",
+        "opacity": "1",
+        "padding": 15,
+        "transition": "width 30s ease-in"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}
