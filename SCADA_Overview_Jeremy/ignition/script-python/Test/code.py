@@ -7,7 +7,7 @@ def test():
 # We use that value in our try block, and have a simple print statement if there is an error.
 	try:
     		value = 100/x
-    		print value
+    		# print value
 	except :
 			Error1 = 'SCADAOVERVIEW'
 			Error2 = 'lineno 26'
